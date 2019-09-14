@@ -9,7 +9,7 @@ class CustomUser(AbstractUser):
     is_worker = models.BooleanField(verbose_name='is_worker', default=False)
     is_employer = models.BooleanField(verbose_name='is_employer', default=False)
     phone = PhoneNumberField(default='', null=True, blank=True)
-    avatar = models.ImageField(upload_to='users/avatar')
+    avatar = models.ImageField(upload_to='users/avatar', null=True, blank=True)
 
     class Meta:
         db_table = 'custom_user'

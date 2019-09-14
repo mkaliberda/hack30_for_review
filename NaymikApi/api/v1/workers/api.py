@@ -10,6 +10,3 @@ class WorkerRoleListView(generics.ListAPIView): # DetailView CreateView FormView
     # lookup_field = 'hash' # slug, id # url(r'?P<pk>\d+')
     queryset = WorkerRole.objects.all()
     serializer_class = WorkerModelSerializer
-
-    def get_serializer_context(self, *args, **kwargs):
-        return {"request": self.request}
