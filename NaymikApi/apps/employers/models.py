@@ -21,7 +21,7 @@ class Company(models.Model):
     name=models.CharField(max_length=200, blank=True, null=True)
     description=models.TextField(blank=True, null=True)
     address=models.TextField(blank=True, null=True)
-    logo = models.ImageField(upload_to = 'companies/logos')
+    logo = models.ImageField(upload_to='companies/logos')
 
     def __str__(self):
         return f'{self.name}'
@@ -30,3 +30,19 @@ class Company(models.Model):
         db_table = 'company'
         verbose_name = 'company'
         verbose_name_plural = 'companyes'
+
+class EmployerCompany(models.Model):
+    employer=models.ForeignKey(to=EmployerRole,
+                               related_name='employer_company_employer_role',
+                               on_delete=models.CASCADE, blank=False, null=False)
+    company=models.ForeignKey(to=Company,
+                               related_name='employer_company_company',
+                               on_delete=models.CASCADE, blank=False, null=False)
+
+    def __str__(self):
+        return f'employer: {self.employer}, company: {self.company}'
+
+    class Meta:
+        db_table = 'employer_company'
+        verbose_name = 'employer_company'
+        verbose_name_plural = 'employer_company'
