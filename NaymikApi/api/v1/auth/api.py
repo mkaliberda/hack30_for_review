@@ -2,7 +2,7 @@ from rest_framework import viewsets, permissions, generics
 from rest_framework.response import Response
 from knox.models import AuthToken
 from .serializers import LoginUserSerializer, UserSerializer
-
+from NaymikApi.apps.custom_users.model_serializer import UserModelSerializer
 
 class LoginAPI(generics.GenericAPIView):
     serializer_class = LoginUserSerializer
@@ -13,6 +13,6 @@ class LoginAPI(generics.GenericAPIView):
         user = serializer.validated_data
         AuthToken.objects.create(user)
         return Response({
-            "user": UserSerializer(user, context=self.get_serializer_context()).data,
+            "user": UserModelSerializer(user, context=self.get_serializer_context()).data,
             "token": AuthToken.objects.create(user)[-1]
         })

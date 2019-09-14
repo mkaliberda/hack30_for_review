@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from NaymikApi.apps.custom_users.models import CustomUser
+from NaymikApi.apps.custom_users.model_serializer import UserModelSerializer
 from NaymikApi.apps.skills.model_serializer import BaseSkillModelSerializer
 from NaymikApi.apps.workers.models import WorkerRole, WorkerSkill, Education, Experience
 
@@ -22,12 +22,6 @@ class ExperienceModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Experience
         fields = ('name', 'start_date', 'end_date', 'is_present')
-
-class UserModelSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = CustomUser
-        fields = ('id', 'first_name', 'last_name', 'is_worker', 'is_employer', 'phone', 'avatar')
 
 class WorkerModelSerializer(serializers.ModelSerializer):
     user = UserModelSerializer()
