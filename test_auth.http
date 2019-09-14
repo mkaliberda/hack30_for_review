@@ -73,4 +73,20 @@ Content-Type: application/json
 
 
 ####
+PATCH http://localhost:8000/api/v1/employer/c32172d6-7ae1-4e80-bba7-f6105d8bd410/
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "id": "d290f1ee-6c54-4b01-90e6-d701748f0851",
+  "first_name": "string",
+  "last_name": "string",
+  "phone_number": "string",
+  "company_name": "string",
+  "company_address": "string"
+}
+
+
+####
 
