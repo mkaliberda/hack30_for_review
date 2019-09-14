@@ -28,6 +28,7 @@ class Education(models.Model):
     start_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
     end_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
     is_present = models.BooleanField(default=False)
+    faculty = models.CharField(max_length=100, default='')
 
     def __str__(self):
         return f'{self.name}'
@@ -47,6 +48,7 @@ class Experience(models.Model):
     start_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
     end_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
     is_present = models.BooleanField(default=False)
+    position = models.CharField(max_length=100, default='')
 
     def __str__(self):
         return f'{self.name}'
