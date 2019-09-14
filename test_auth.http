@@ -16,5 +16,12 @@ Cache-Control: no-cache
 Content-Type: application/json
 
 
+####
+GET http://localhost:8000/api/v1/worker/fe9ec166-2d77-4e83-9182-d5d2844bd0c1
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
 
 ####
+
