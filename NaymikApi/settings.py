@@ -25,6 +25,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # libs
     'phonenumber_field',
+    'rest_framework',
+    'knox',
     # apps
     'NaymikApi.apps.custom_users',
     'NaymikApi.apps.skills',
@@ -47,7 +49,7 @@ ROOT_URLCONF = 'NaymikApi.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(PROJECT_ROOT, 'templates'), BASE_DIR],
+        'DIRS': [os.path.join(BASE_DIR, 'application', 'src', 'template',)],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,3 +120,13 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+# Rest framework settings
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        # 'rest_framework.renderers.BrowsableAPIRenderer',
+        # 'rest_framework.parsers.FormParser',
+    )
+}

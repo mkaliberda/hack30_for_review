@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.views.static import serve
 from django.conf import settings
-from django.urls import re_path, path, include
+from django.urls import path, re_path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    re_path(r'^api/', include('rest_framework.urls', namespace='rest_framework')),
+    re_path(r'^api/v1/', include(('NaymikApi.api.v1.urls', 'api'), namespace='api_v1')),
     re_path(r'^static/(?P<path>.*)$', serve,
             {'document_root': settings.STATIC_ROOT}),
     re_path(r'^media/(?P<path>.*)$', serve,
