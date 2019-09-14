@@ -4,7 +4,6 @@ from NaymikApi.apps.skills.model_serializer import BaseSkillModelSerializer
 from NaymikApi.apps.workers.models import WorkerRole, WorkerSkill, Education, Experience
 
 
-
 class WorkerSkillModelSerializer(serializers.ModelSerializer):
     base_skill = BaseSkillModelSerializer()
 
@@ -17,6 +16,7 @@ class EducationModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Education
         fields = ('name', 'start_date', 'end_date', 'is_present')
+
 
 class ExperienceModelSerializer(serializers.ModelSerializer):
     class Meta:
@@ -32,8 +32,8 @@ class WorkerModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = WorkerRole
         fields = ('user',
-                   'city',
-                   'rate',
-                   'educations_worker_role',
-                   'experiences_worker_role',
-                   'base_skills_worker_role')
+                  'city',
+                  'rate',
+                  'educations_worker_role',
+                  'experiences_worker_role',
+                  'base_skills_worker_role')
