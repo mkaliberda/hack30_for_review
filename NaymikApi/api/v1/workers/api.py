@@ -13,6 +13,7 @@ class WorkerRoleListView(generics.ListAPIView): # DetailView CreateView FormView
 
 class WorkerRoleViewRetriveList(mixins.ListModelMixin,
                                 mixins.RetrieveModelMixin,
+                                mixins.UpdateModelMixin,
                                 viewsets.GenericViewSet): # DetailView CreateView FormView
     # lookup_field = 'hash' # slug, id # url(r'?P<pk>\d+')
     serializer_class = WorkerModelSerializer
