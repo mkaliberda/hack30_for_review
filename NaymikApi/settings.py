@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'NaymikApi.apps.skills',
     'NaymikApi.apps.employers',
     'NaymikApi.apps.workers',
+    'NaymikApi.apps.shift',
 ]
 
 MIDDLEWARE = [
