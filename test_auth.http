@@ -9,5 +9,12 @@ Content-Type: application/json
   "password": "A1qwerty"
 }
 
+####
+GET http://localhost:8000/api/v1/workers/
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+
 
 ####
