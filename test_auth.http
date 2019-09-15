@@ -17,22 +17,31 @@ Content-Type: application/json
 
 
 ####
-GET http://localhost:8000/api/v1/worker/fe9ec166-2d77-4e83-9182-d5d2844bd0c1
+GET http://localhost:8000/api/v1/worker/fe9ec166-2d77-4e83-9182-d5d2844bd0c1/
 Accept: application/json
 Cache-Control: no-cache
 Content-Type: application/json
 
 ####
-PATCH http://localhost:8000/api/v1/worker/fe9ec166-2d77-4e83-9182-d5d2844bd0c1
+PATCH http://localhost:8000/api/v1/update_worker/fe9ec166-2d77-4e83-9182-d5d2844bd0c1/
 Accept: application/json
 Cache-Control: no-cache
 Content-Type: application/json
 
 {
-  "city": "Kiy11v",
+  "user": {
+    "id": "fe9ec166-2d77-4e83-9182-d5d2844bd0c1",
+    "first_name": "",
+    "last_name": "",
+    "is_worker": false,
+    "is_employer": false,
+    "phone": "+380931881818"
+  },
+  "city": "Kiyv",
   "rate": 10,
   "educations_worker_role": [
     {
+      "id": 1,
       "name": "NTU",
       "start_date": "2019-09-14",
       "end_date": "2019-09-14",
@@ -41,6 +50,7 @@ Content-Type: application/json
   ],
   "experiences_worker_role": [
     {
+      "id": 1,
       "name": "PUMB",
       "start_date": "2019-09-14",
       "end_date": "2019-09-14",
@@ -64,7 +74,6 @@ Content-Type: application/json
     }
   ]
 }
-
 
 ####
 

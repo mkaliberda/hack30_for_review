@@ -70,8 +70,12 @@ WSGI_APPLICATION = 'NaymikApi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'naymik',
+        'USER': 'doadmin',
+        'PASSWORD': 'pj6ba70r1b2elkw8',
+        'HOST': 'naymik-do-user-3749305-0.db.ondigitalocean.com',
+        'PORT': '25060',
     }
 }
 
