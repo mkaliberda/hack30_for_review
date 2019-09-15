@@ -10,6 +10,7 @@ class WorkerRole(models.Model):
                            blank=False, null=False)
     city=models.CharField(max_length=100, blank=True, null=True)
     rate=models.IntegerField(default=0)
+    skills_roles=models.ManyToManyField(BaseSkill)
 
     def __str__(self):
         return f'{self.user}'
