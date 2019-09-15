@@ -10,4 +10,6 @@ class UserModelSerializer(serializers.ModelSerializer):
                   'first_name',
                   'last_name',
                   'phone',
-                  'avatar')
+                  'avatar',
+                  'is_worker',
+                  'is_employer')
