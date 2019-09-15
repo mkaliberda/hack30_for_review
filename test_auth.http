@@ -15,7 +15,7 @@ Accept: application/json
 Cache-Control: no-cache
 Content-Type: application/json
 
-####
+####f
 GET http://localhost:8000/api/v1/employers/
 Accept: application/json
 Cache-Control: no-cache
@@ -23,68 +23,45 @@ Content-Type: application/json
 
 
 ####
-GET http://localhost:8000/api/v1/worker/fe9ec166-2d77-4e83-9182-d5d2844bd0c1
+GET http://localhost:8000/api/v1/worker/3a485b14-8afe-41bd-9665-2c493376fab7
 Accept: application/json
 Cache-Control: no-cache
 Content-Type: application/json
 
 ####
-PATCH http://localhost:8000/api/v1/worker/fe9ec166-2d77-4e83-9182-d5d2844bd0c1
+GET http://localhost:8000/api/v1/employer/3a485b14-8afe-41bd-9665-2c493376fab7
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+####
+PATCH http://localhost:8000/api/v1/worker/3a485b14-8afe-41bd-9665-2c493376fab7/
 Accept: application/json
 Cache-Control: no-cache
 Content-Type: application/json
 
 {
-  "city": "Kiy11v",
-  "rate": 10,
-  "educations_worker_role": [
-    {
-      "name": "NTU",
-      "start_date": "2019-09-14",
-      "end_date": "2019-09-14",
-      "is_present": false
-    }
-  ],
-  "experiences_worker_role": [
-    {
-      "name": "PUMB",
-      "start_date": "2019-09-14",
-      "end_date": "2019-09-14",
-      "is_present": false
-    }
-  ],
-  "base_skills_worker_role": [
-    {
-      "id": 1,
-      "base_skill": {
-        "id": 1,
-        "name": "Бариста"
-      }
-    },
-    {
-      "id": 2,
-      "base_skill": {
-        "id": 2,
-        "name": "Фицик"
-      }
-    }
-  ]
+  "first_name": "Oleksandr",
+  "last_name": "",
+  "photo": null,
+  "phone_number": "",
+  "education": [],
+  "experience": [],
+  "roles": ["barmen"]
 }
 
-
 ####
-PATCH http://localhost:8000/api/v1/employer/c32172d6-7ae1-4e80-bba7-f6105d8bd410/
+PATCH http://localhost:8000/api/v1/employer/3a485b14-8afe-41bd-9665-2c493376fab7/
 Accept: application/json
 Cache-Control: no-cache
 Content-Type: application/json
 
 {
-  "id": "d290f1ee-6c54-4b01-90e6-d701748f0851",
-  "first_name": "string",
-  "last_name": "string",
-  "phone_number": "string",
-  "company_name": "string",
-  "company_address": "string"
+  "first_name": "oleksanr",
+  "last_name": "baranov",
+  "phone_number": "456",
+  "company_name": "name",
+  "company_address": "company"
 }
 
 
