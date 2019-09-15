@@ -19,6 +19,10 @@ class WorkerRoleViewRetriveList(mixins.ListModelMixin,
 
     def get_object(self):
         return WorkerRole.objects.get(user__id=self.kwargs['user_id'])
+    
+    def get_serializer_context(self, *args, **kwargs):
+        return {"request": self.request}
+        
 
     def retrieve(self, request, *args, **kwargs):
         serializer = WorkerModelSerializer(self.get_object())

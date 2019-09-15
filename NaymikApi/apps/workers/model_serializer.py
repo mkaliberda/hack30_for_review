@@ -11,25 +11,76 @@ class WorkerSkillModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = WorkerSkill
         fields = ('id', 'base_skill')
+        extra_kwargs = {
+            'id': {
+                'read_only': True,
+                'required': False
+            },
+            'base_skill': {
+                'read_only': False,
+                'required': False
+            }
+        } #very important
 
 
 class EducationModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Education
-        fields = ('name', 'start_date', 'end_date', 'is_present')
+        fields = ('id', 'name', 'start_date', 'end_date', 'is_present')
+        extra_kwargs = {
+            'id': {
+                'read_only': True,
+                'required': False
+            },
+            'name': {
+                'read_only': False,
+                'required': False
+            },
+            'start_date': {
+                'read_only': False,
+                'required': False
+            },
+            'end_date': {
+                'read_only': False,
+                'required': False
+            },
+            'is_present': {
+                'read_only': False,
+                'required': False
+            }
+        } #very important
 
 
 class ExperienceModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Experience
-        fields = ('name', 'start_date', 'end_date', 'is_present')
+        fields = ('id', 'name', 'start_date', 'end_date', 'is_present')
+        extra_kwargs = {
+            'id': {
+                'read_only': True,
+                'required': False
+            },
+            'start_date': {
+                'read_only': False,
+                'required': False
+            },
+            'end_date': {
+                'read_only': False,
+                'required': False
+            },
+            'is_present': {
+                'read_only': False,
+                'required': False
+            }
+        }
 
 
 class WorkerModelSerializer(serializers.ModelSerializer):
     user = UserModelSerializer()
-    educations_worker_role = EducationModelSerializer(many=True)
+    education = EducationModelSerializer(many=True, source='education_worker_role')
     experiences_worker_role = ExperienceModelSerializer(many=True)
     base_skills_worker_role = WorkerSkillModelSerializer(many=True)
+    education = serializers.CharField(source='educations_worker_role')
 
     class Meta:
         model = WorkerRole

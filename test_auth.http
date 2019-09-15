@@ -23,13 +23,13 @@ Content-Type: application/json
 
 
 ####
-GET http://localhost:8000/api/v1/worker/3a485b14-8afe-41bd-9665-2c493376fab7
+GET http://localhost:8000/api/v1/worker/fe9ec166-2d77-4e83-9182-d5d2844bd0c1
 Accept: application/json
 Cache-Control: no-cache
 Content-Type: application/json
 
 ####
-GET http://localhost:8000/api/v1/employer/3a485b14-8afe-41bd-9665-2c493376fab7
+PATCH http://localhost:8000/api/v1/worker/fe9ec166-2d77-4e83-9182-d5d2844bd0c1
 Accept: application/json
 Cache-Control: no-cache
 Content-Type: application/json
@@ -63,7 +63,6 @@ Content-Type: application/json
   "company_name": "name",
   "company_address": "company"
 }
-
 
 ####
 
