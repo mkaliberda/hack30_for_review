@@ -1,32 +1,32 @@
 from rest_framework import viewsets, permissions, generics, mixins, status
+
+from NaymikApi.apps.employers.models import EmployerRole
+
+from NaymikApi.apps.employers.model_serializer import EmployerModelSerializer
 from rest_framework.response import Response
 
-from NaymikApi.apps.custom_users.models import CustomUser
-from NaymikApi.apps.workers.models import WorkerRole, WorkerSkill, Education, Experience
 
-from NaymikApi.apps.workers.model_serializer import WorkerModelSerializer
-
-class WorkerRoleViewRetriveList(mixins.ListModelMixin,
+class EmployerRoleViewRetriveList(mixins.ListModelMixin,
                                 mixins.RetrieveModelMixin,
                                 mixins.UpdateModelMixin,
                                 viewsets.GenericViewSet): # DetailView CreateView FormView
     # lookup_field = 'hash' # slug, id # url(r'?P<pk>\d+')
-    serializer_class = WorkerModelSerializer
-    lookup_field = 'worker_id'
+    serializer_class = EmployerModelSerializer
+    lookup_field = 'employer_id'
 
     def get_queryset(self):
-        return WorkerRole.objects.all()
+        return EmployerRole.objects.all()
 
-    def get_object(self):
-        return WorkerRole.objects.get(user__id=self.kwargs['user_id'])
-    
-    def get_serializer_context(self, *args, **kwargs):
-        return {"request": self.request}
-        
+    def list(self, request, *args, **kwargs):
+        serializer = EmployerModelSerializer(self.get_queryset(), many=True)
+        return Response(serializer.data)
 
     def retrieve(self, request, *args, **kwargs):
-        serializer = WorkerModelSerializer(self.get_object())
+        serializer = EmployerModelSerializer(self.get_object())
         return Response(serializer.data)
+
+    def get_object(self):
+        return EmployerRole.objects.get(user__id=self.kwargs['user_id'])
 
     def update(self, request, *args, **kwargs):
         user_data = request.data
@@ -38,12 +38,11 @@ class WorkerRoleViewRetriveList(mixins.ListModelMixin,
             'user': {
                 'first_name': user_data.get('first_name'),
                 'last_name': user_data.get('last_name'),
-                'phone': user_data.get('phone_number'),
-                'avatar': user_data.get('photo'),
+                'phone': user_data.get('')
             },
-            'educations_worker_role': user_data.get('education'),
-            'experiences_worker_role': user_data.get('experience'),
-            'base_skills_worker_role': user_data.get('company_description'),
+            'company_name': user_data.get('company_name'),
+            'company_address': user_data.get('company_address'),
+            'company_description': user_data.get('company_description'),
         }
 
         #pass request.user here
@@ -54,4 +53,5 @@ class WorkerRoleViewRetriveList(mixins.ListModelMixin,
         serializer.save()
 
         return Response(serializer.data, status=status.HTTP_200_OK)
+
 

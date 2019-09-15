@@ -15,64 +15,53 @@ Accept: application/json
 Cache-Control: no-cache
 Content-Type: application/json
 
+####f
+GET http://localhost:8000/api/v1/employers/
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
 
 ####
-GET http://localhost:8000/api/v1/worker/fe9ec166-2d77-4e83-9182-d5d2844bd0c1/
+GET http://localhost:8000/api/v1/worker/fe9ec166-2d77-4e83-9182-d5d2844bd0c1
 Accept: application/json
 Cache-Control: no-cache
 Content-Type: application/json
 
 ####
-PATCH http://localhost:8000/api/v1/update_worker/fe9ec166-2d77-4e83-9182-d5d2844bd0c1/
+PATCH http://localhost:8000/api/v1/worker/fe9ec166-2d77-4e83-9182-d5d2844bd0c1
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+####
+PATCH http://localhost:8000/api/v1/worker/3a485b14-8afe-41bd-9665-2c493376fab7/
 Accept: application/json
 Cache-Control: no-cache
 Content-Type: application/json
 
 {
-  "user": {
-    "id": "fe9ec166-2d77-4e83-9182-d5d2844bd0c1",
-    "first_name": "",
-    "last_name": "",
-    "is_worker": false,
-    "is_employer": false,
-    "phone": "+380931881818"
-  },
-  "city": "Kiyv",
-  "rate": 10,
-  "educations_worker_role": [
-    {
-      "id": 1,
-      "name": "NTU",
-      "start_date": "2019-09-14",
-      "end_date": "2019-09-14",
-      "is_present": false
-    }
-  ],
-  "experiences_worker_role": [
-    {
-      "id": 1,
-      "name": "PUMB",
-      "start_date": "2019-09-14",
-      "end_date": "2019-09-14",
-      "is_present": false
-    }
-  ],
-  "base_skills_worker_role": [
-    {
-      "id": 1,
-      "base_skill": {
-        "id": 1,
-        "name": "Бариста"
-      }
-    },
-    {
-      "id": 2,
-      "base_skill": {
-        "id": 2,
-        "name": "Фицик"
-      }
-    }
-  ]
+  "first_name": "Oleksandr",
+  "last_name": "",
+  "photo": null,
+  "phone_number": "",
+  "education": [],
+  "experience": [],
+  "roles": ["barmen"]
+}
+
+####
+PATCH http://localhost:8000/api/v1/employer/3a485b14-8afe-41bd-9665-2c493376fab7/
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "first_name": "oleksanr",
+  "last_name": "baranov",
+  "phone_number": "456",
+  "company_name": "name",
+  "company_address": "company"
 }
 
 ####
