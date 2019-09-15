@@ -23,31 +23,54 @@ Content-Type: application/json
 
 
 ####
-GET http://localhost:8000/api/v1/worker/fe9ec166-2d77-4e83-9182-d5d2844bd0c1
+GET http://localhost:8000/api/v1/worker/fe9ec166-2d77-4e83-9182-d5d2844bd0c1/
 Accept: application/json
 Cache-Control: no-cache
 Content-Type: application/json
 
 ####
-PATCH http://localhost:8000/api/v1/worker/fe9ec166-2d77-4e83-9182-d5d2844bd0c1
-Accept: application/json
-Cache-Control: no-cache
-Content-Type: application/json
-
-####
-PATCH http://localhost:8000/api/v1/worker/3a485b14-8afe-41bd-9665-2c493376fab7/
+PATCH http://localhost:8000/api/v1/worker/fe9ec166-2d77-4e83-9182-d5d2844bd0c1/
 Accept: application/json
 Cache-Control: no-cache
 Content-Type: application/json
 
 {
   "first_name": "Oleksandr",
-  "last_name": "",
+  "last_name": "Oleksandr123",
+  "city": "Kiyv",
+  "rate": 55,
   "photo": null,
-  "phone_number": "",
-  "education": [],
-  "experience": [],
-  "roles": ["barmen"]
+  "phone_number": "+380931881818",
+   "skills_roles": [
+    {
+      "id": 1,
+      "name": "dd"
+    },
+    {
+      "id": 2,
+      "name": "dd"
+    },
+     {
+      "id": 3,
+      "name": "PHP"
+    }
+  ],
+  "education": [
+    {
+      "name": "UNIT Factor13y",
+      "start_date": "2016-09-14",
+      "is_present": true,
+      "faculty": "Бродяга"
+    }
+  ],
+  "experience": [
+    {
+      "name": "UNIT Factor13y",
+      "start_date": "2016-09-14",
+      "is_present": true,
+      "position": "Бродяга"
+    }
+  ]
 }
 
 ####

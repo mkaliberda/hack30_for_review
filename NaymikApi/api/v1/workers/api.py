@@ -33,8 +33,9 @@ class WorkerRoleViewRetriveList(mixins.ListModelMixin,
         user_to_update = self.get_object()
         # Here is that serialize, validate, save pattern we talked about
         # before.
-
         serializer_data = {
+            'city': user_data.get('city'),
+            'rate': user_data.get('rate'),
             'user': {
                 'first_name': user_data.get('first_name'),
                 'last_name': user_data.get('last_name'),
@@ -43,11 +44,12 @@ class WorkerRoleViewRetriveList(mixins.ListModelMixin,
             },
             'educations_worker_role': user_data.get('education'),
             'experiences_worker_role': user_data.get('experience'),
-            'base_skills_worker_role': user_data.get('company_description'),
+            'skills_roles': user_data.get('skills_roles'),
+            # 'roles': [ {"id": item['id']} for item in user_data.get('roles') ],
         }
 
         #pass request.user here
-        serializer = self.serializer_class(
+        serializer = WorkerModelSerializer(
             user_to_update, data=serializer_data, partial=True
         )
         serializer.is_valid(raise_exception=True)

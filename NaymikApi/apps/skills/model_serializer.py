@@ -7,11 +7,11 @@ class BaseSkillModelSerializer(serializers.ModelSerializer):
         fields = ('id', 'name')
         extra_kwargs = {
             'id': {
-                'read_only': True, 
+                'read_only': False, 
                 'required': False
             },
             'name': {
-                'read_only': False, 
+                'read_only': False,
                 'required': False
             }
         } #very important
