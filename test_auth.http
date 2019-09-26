@@ -5,7 +5,7 @@ Cache-Control: no-cache
 Content-Type: application/json
 
 {
-  "username": "dima12",
+  "username": "artist",
   "password": "A1qwerty",
   "is_worker": true,
   "is_employer": false
@@ -13,13 +13,13 @@ Content-Type: application/json
 
 ####
 
-POST http://localhost:8000/api/v1/auth/sign_up/
+POST http://localhost:8000/api/v1/auth/login/
 Accept: application/json
 Cache-Control: no-cache
 Content-Type: application/json
 
 {
-  "username": "admin1",
+  "username": "admin",
   "password": "A1qwerty"
 }
 
@@ -87,8 +87,15 @@ Content-Type: application/json
   ]
 }
 
+#####
+
+GET http://localhost:8000/api/v1/employers/
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
 ####
-PATCH http://localhost:8000/api/v1/employer/3a485b14-8afe-41bd-9665-2c493376fab7/
+GET http://localhost:8000/api/v1/employers/
 Accept: application/json
 Cache-Control: no-cache
 Content-Type: application/json

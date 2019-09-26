@@ -2,6 +2,8 @@ from rest_framework import serializers
 import os
 from django.contrib.auth import authenticate
 from NaymikApi.apps.custom_users.models import CustomUser
+from NaymikApi.apps.workers.models import WorkerRole
+from NaymikApi.apps.employers.models import EmployerRole
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -35,5 +37,11 @@ class CreateUserSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         user = CustomUser.objects.create(username=validated_data['username'],
-                                         password=validated_data['password'])
+                                         password=validated_data['password'],
+                                         is_employer=validated_data['is_worker'],
+                                         is_worker=validated_data['is_worker'])
+        if user.is_employer:
+            EmployerRole.objects.create(user=user)
+        else:
+            WorkerRole.objects.create(user=user)
         return user
