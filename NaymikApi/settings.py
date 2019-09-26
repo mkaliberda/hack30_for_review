@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'NaymikApi.apps.skills',
     'NaymikApi.apps.employers',
     'NaymikApi.apps.workers',
+    'NaymikApi.apps.shift',
 ]
 
 MIDDLEWARE = [
@@ -67,12 +68,27 @@ WSGI_APPLICATION = 'NaymikApi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+
+'''
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'naymik',
+        'USER': 'doadmin',
+        'PASSWORD': 'pj6ba70r1b2elkw8',
+        'HOST': 'naymik-do-user-3749305-0.db.ondigitalocean.com',
+        'PORT': '25060',
     }
 }
+
+'''
+DATABASES = {
+    'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        },
+}
+
 
 
 # Password validation

@@ -1,12 +1,16 @@
+import uuid
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from phonenumber_field.modelfields import PhoneNumberField
+from django.db.models.signals import post_save, pre_save
 # Create your models here.
 
 class CustomUser(AbstractUser):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     is_worker = models.BooleanField(verbose_name='is_worker', default=False)
     is_employer = models.BooleanField(verbose_name='is_employer', default=False)
     phone = PhoneNumberField(default='', null=True, blank=True)
+    avatar = models.ImageField(upload_to='users/avatar', null=True, blank=True)
 
     class Meta:
         db_table = 'custom_user'

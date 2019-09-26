@@ -9,10 +9,11 @@ class WorkerRole(models.Model):
                            on_delete=models.CASCADE,
                            blank=False, null=False)
     city=models.CharField(max_length=100, blank=True, null=True)
-    rate=models.ImageField(default=0)
+    rate=models.IntegerField(default=0)
+    skills_roles=models.ManyToManyField(BaseSkill)
 
     def __str__(self):
-        return f'{self.user__username}'
+        return f'{self.user}'
 
     class Meta:
         db_table = 'worker_role'
@@ -24,10 +25,11 @@ class Education(models.Model):
                                   related_name='educations_worker_role',
                                   on_delete=models.CASCADE,
                                   blank=False, null=False)
-    name=models.TextField(max_length=200, blank=True, null=True)
+    name=models.CharField(max_length=200, blank=True, null=True)
     start_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
     end_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
     is_present = models.BooleanField(default=False)
+    faculty = models.CharField(max_length=100, default='')
 
     def __str__(self):
         return f'{self.name}'
@@ -43,10 +45,11 @@ class Experience(models.Model):
                                   related_name='experiences_worker_role',
                                   on_delete=models.CASCADE,
                                   blank=False, null=False)
-    name=models.TextField(max_length=200, blank=True, null=True)
+    name=models.CharField(max_length=200, blank=True, null=True)
     start_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
     end_date = models.DateField(auto_now=False, auto_now_add=False, blank=True, null=True)
     is_present = models.BooleanField(default=False)
+    position = models.CharField(max_length=100, default='')
 
     def __str__(self):
         return f'{self.name}'
@@ -68,7 +71,7 @@ class WorkerSkill(models.Model):
                                    blank=False, null=False)
 
     def __str__(self):
-        return f'user: {self.name}, skill: {base_skill__name}'
+        return f'worker_role: {self.worker_role}, skill: {self.base_skill}'
 
     class Meta:
         db_table = 'worker_skill'

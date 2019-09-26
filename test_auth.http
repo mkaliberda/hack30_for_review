@@ -1,4 +1,18 @@
 ####
+POST http://localhost:8000/api/v1/auth/sign_up/
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "username": "artist",
+  "password": "A1qwerty",
+  "is_worker": true,
+  "is_employer": false
+}
+
+####
+
 POST http://localhost:8000/api/v1/auth/login/
 Accept: application/json
 Cache-Control: no-cache
@@ -9,5 +23,90 @@ Content-Type: application/json
   "password": "A1qwerty"
 }
 
+####
+GET http://localhost:8000/api/v1/workers/
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+####f
+GET http://localhost:8000/api/v1/employers/
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
 
 ####
+GET http://localhost:8000/api/v1/worker/fe9ec166-2d77-4e83-9182-d5d2844bd0c1/
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+####
+PATCH http://localhost:8000/api/v1/worker/fe9ec166-2d77-4e83-9182-d5d2844bd0c1/
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "first_name": "Oleksandr",
+  "last_name": "Oleksandr123",
+  "city": "Kiyv",
+  "rate": 55,
+  "photo": null,
+  "phone_number": "+380931881818",
+   "skills_roles": [
+    {
+      "id": 1,
+      "name": "dd"
+    },
+    {
+      "id": 2,
+      "name": "dd"
+    },
+     {
+      "id": 3,
+      "name": "PHP"
+    }
+  ],
+  "education": [
+    {
+      "name": "UNIT Factor13y",
+      "start_date": "2016-09-14",
+      "is_present": true,
+      "faculty": "Бродяга"
+    }
+  ],
+  "experience": [
+    {
+      "name": "UNIT Factor13y",
+      "start_date": "2016-09-14",
+      "is_present": true,
+      "position": "Бродяга"
+    }
+  ]
+}
+
+#####
+
+GET http://localhost:8000/api/v1/employers/
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+####
+GET http://localhost:8000/api/v1/employers/
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "first_name": "oleksanr",
+  "last_name": "baranov",
+  "phone_number": "456",
+  "company_name": "name",
+  "company_address": "company"
+}
+
+####
+
